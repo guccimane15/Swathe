@@ -1,0 +1,74 @@
+.brand-logo {
+    margin-left: 10px;
+}
+
+#nav-mobile {
+    margin-right: 10px;
+}
+
+.left-box, .center-box, .right-box{
+
+
+}
+
+.hero-title {
+
+    margin-top: 200px;
+
+}
+
+.bottomSec-bg {
+    background-color: grey;
+}
+
+.bottom-boxes {
+    padding-top: 30px;
+}
+.center-box {
+    margin-top: 50px;
+}
+
+.catalog-btn {
+    margin-top: 140px;
+    padding: 10px 60px 10px 60px;
+    padding-bottom: 45px;
+}
+
+.parallax-container{
+    height: 300px;
+}
+
+.shirts-title {
+    margin-top: 80px;
+}
+
+.t-shirt-img {
+    #background-color: grey;
+    height: 500px;
+}
+
+.stars {
+    margin-top: 10px;
+    padding: 4px;
+}
+
+.orderSummary_container {
+    border-right: 1px solid black;
+
+}
+
+.payment_info {
+    border-left: 1px solid black;
+}
+
+.user_form {
+    #background-color: lightgray;
+    padding-left: 10px;
+}
+
+
+
+
+
+
+
