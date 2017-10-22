@@ -1,16 +1,8 @@
 <?php
-include ('connection.php');
+include('connection.php');
 
-$selection_query = "SELECT sku, product_name, description, category, cost, price, product_image, size, weight
-                FROM Products";
 
-$selection_result = $mysqli->query($selection_query);
-if( !$selection_result)
-    die($mysqli->error);
 ?>
-
-
-
 
 
 <!DOCTYPE html>
@@ -21,12 +13,14 @@ if( !$selection_result)
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" />
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"/>
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <!-- Tipue Search -->
+    <link rel="stylesheet" href="tipuesearch/css/tipuesearch.css">
 </head>
 <body>
 
@@ -38,7 +32,18 @@ if( !$selection_result)
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 
         <ul class="right hide-on-med-and-down">
-            <li><a href="#"><i class="material-icons left">search</i></a></li>
+            <li>
+                <form action="search.php">
+                    <input type="text" name="q" id="tipue_search_input" list="search">
+                </form>
+
+                <datalist id="search">
+                    <option>Home</option>
+                    <option>Catalog</option>
+                    <option>Cart</option>
+                    <option>User Profile</option>
+                </datalist>
+            </li>
             <li><a href="home.php">Home</a></li>
             <li><a href="catalog.php">Catalog</a></li>
             <li><a href="cart.php">Cart</a></li>
@@ -57,13 +62,12 @@ if( !$selection_result)
 </nav>
 
 
-
 <!-- T-shirts Hero img -->
 
 <div class="row">
     <div class="parallax-container">
         <div class="col l12 parallax">
-            <img src="img/photo1.jpeg" alt="clothing" >
+            <img src="img/photo1.jpeg" alt="clothing">
         </div>
         <div class="row">
             <div class="col l12 center shirts-title">
@@ -86,115 +90,114 @@ if( !$selection_result)
     </div>
     <div id="test1" class="col s12">
 
-            <div class="row">
-                <div class="col l3 t-shirt-img center">
-                    <div class="row">
-                        <div class="col m12">
-                            <img src="img/franketee.jpg.jpeg" alt="red_shirt">
-                        </div>
-                        <div class="col m12">
-                            <h4>A Cool Shirt</h4>
-                        </div>
-                        <div class="col m12">
-                            <div class="row">
-                                <div class="col m3">
-                                    <h5>$20</h5>
-                                </div>
-                                <div class="col m9">
-                                    <div class="stars right">
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+        <div class="row">
+            <div class="col l3 t-shirt-img center">
+                <div class="row">
+                    <div class="col m12">
+                        <img src="img/franketee.jpg.jpeg" alt="red_shirt">
                     </div>
-                </div>
-                <div class="col l3 t-shirt-img center">
-                    <div class="row">
-                        <div class="col m12">
-                            <img src="img/franketee.jpg.jpeg" alt="red_shirt">
-                        </div>
-                        <div class="col m12">
-                            <h4>A Cool Shirt</h4>
-                        </div>
-                        <div class="col m12">
-                            <div class="row">
-                                <div class="col m3">
-                                    <h5>$20</h5>
-                                </div>
-                                <div class="col m9">
-                                    <div class="stars right">
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col m12">
+                        <h4>A Cool Shirt</h4>
                     </div>
-                </div>
-                <div class="col l3 t-shirt-img center">
-                    <div class="row">
-                        <div class="col m12">
-                            <img src="img/franketee.jpg.jpeg" alt="red_shirt">
-                        </div>
-                        <div class="col m12">
-                            <h4>A Cool Shirt</h4>
-                        </div>
-                        <div class="col m12">
-                            <div class="row">
-                                <div class="col m3">
-                                    <h5>$20</h5>
-                                </div>
-                                <div class="col m9">
-                                    <div class="stars right">
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                    </div>
-                                </div>
+                    <div class="col m12">
+                        <div class="row">
+                            <div class="col m3">
+                                <h5>$20</h5>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col l3 t-shirt-img center">
-                    <div class="row">
-                        <div class="col m12">
-                            <img src="img/franketee.jpg.jpeg" alt="red_shirt">
-                        </div>
-                        <div class="col m12">
-                            <h4>A Cool Shirt</h4>
-                        </div>
-                        <div class="col m12">
-                            <div class="row">
-                                <div class="col m3">
-                                    <h5>$20</h5>
-                                </div>
-                                <div class="col m9">
-                                    <div class="stars right">
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                    </div>
+                            <div class="col m9">
+                                <div class="stars right">
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="col l3 t-shirt-img center">
+                <div class="row">
+                    <div class="col m12">
+                        <img src="img/franketee.jpg.jpeg" alt="red_shirt">
+                    </div>
+                    <div class="col m12">
+                        <h4>A Cool Shirt</h4>
+                    </div>
+                    <div class="col m12">
+                        <div class="row">
+                            <div class="col m3">
+                                <h5>$20</h5>
+                            </div>
+                            <div class="col m9">
+                                <div class="stars right">
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col l3 t-shirt-img center">
+                <div class="row">
+                    <div class="col m12">
+                        <img src="img/franketee.jpg.jpeg" alt="red_shirt">
+                    </div>
+                    <div class="col m12">
+                        <h4>A Cool Shirt</h4>
+                    </div>
+                    <div class="col m12">
+                        <div class="row">
+                            <div class="col m3">
+                                <h5>$20</h5>
+                            </div>
+                            <div class="col m9">
+                                <div class="stars right">
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col l3 t-shirt-img center">
+                <div class="row">
+                    <div class="col m12">
+                        <img src="img/franketee.jpg.jpeg" alt="red_shirt">
+                    </div>
+                    <div class="col m12">
+                        <h4>A Cool Shirt</h4>
+                    </div>
+                    <div class="col m12">
+                        <div class="row">
+                            <div class="col m3">
+                                <h5>$20</h5>
+                            </div>
+                            <div class="col m9">
+                                <div class="stars right">
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
-
 
 
     <!-- Long Sleeves -->
@@ -311,7 +314,7 @@ if( !$selection_result)
     </div>
 
 
-<!-- Tank Tops -->
+    <!-- Tank Tops -->
 
     <div id="test3" class="col s12">
         <div class="row">
@@ -424,7 +427,7 @@ if( !$selection_result)
     </div>
 
 
-<!-- Sport Shirt -->
+    <!-- Sport Shirt -->
 
     <div id="test4" class="col s12">
         <div class="row">
@@ -676,7 +679,6 @@ if( !$selection_result)
         </div>
 
     </div>
-
 
 
     <!-- Winter Jackets -->
@@ -1020,8 +1022,6 @@ if( !$selection_result)
 </div>
 
 
-
-
 <hr>
 
 <!--Footer Section -->
@@ -1065,5 +1065,15 @@ if( !$selection_result)
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="js/script.js"></script>
 <script type="text/javascript" src="js/materialize.js"></script>
+<!-- Tipue Search -->
+<script src="tipuesearch/tipuesearch_content.js"></script>
+<link rel="stylesheet" href="tipuesearch/css/tipuesearch.css">
+<script src="tipuesearch/tipuesearch_set.js"></script>
+<script src="tipuesearch/tipuesearch.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+</script>
 </body>
 </html>

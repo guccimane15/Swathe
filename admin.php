@@ -1,12 +1,7 @@
 <?php
 include ('connection.php');
 
-$selection_query = "SELECT sku, product_name, description, category, cost, price, product_image, size, weight
-                FROM Products";
 
-$selection_result = $mysqli->query($selection_query);
-if( !$selection_result)
-    die($mysqli->error);
 ?>
 
 
@@ -22,12 +17,14 @@ if( !$selection_result)
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" />
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"/>
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <!-- Tipue Search -->
+    <link rel="stylesheet" href="tipuesearch/css/tipuesearch.css">
 </head>
 <body>
 
@@ -39,7 +36,17 @@ if( !$selection_result)
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 
         <ul class="right hide-on-med-and-down">
-            <li><a href="#"><i class="material-icons left">search</i></a></li>
+            <li><form action="search.php">
+                    <input type="text" name="q" id="tipue_search_input" list="search">
+                </form>
+
+                <datalist id="search">
+                    <option>Home</option>
+                    <option>Catalog</option>
+                    <option>Cart</option>
+                    <option>User Profile</option>
+                </datalist>
+            </li>
             <li><a href="home.php">Home</a></li>
             <li><a href="catalog.php">Catalog</a></li>
             <li><a href="cart.php">Cart</a></li>
@@ -179,8 +186,18 @@ if( !$selection_result)
         <p>This site is not official and is an assignment for a UCF Digital Media course. Designed by Frank Schiller</p>
     </div>
 </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="js/script.js"></script>
-    <script type="text/javascript" src="js/materialize.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="js/script.js"></script>
+<script type="text/javascript" src="js/materialize.js"></script>
+<!-- Tipue Search -->
+<script src="tipuesearch/tipuesearch_content.js"></script>
+<link rel="stylesheet" href="tipuesearch/css/tipuesearch.css">
+<script src="tipuesearch/tipuesearch_set.js"></script>
+<script src="tipuesearch/tipuesearch.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+</script>
 </body>
 </html>
