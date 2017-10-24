@@ -37,6 +37,7 @@ include('connection.php');
                     <option>Catalog</option>
                     <option>Cart</option>
                     <option>User Profile</option>
+                    <option>T-Shirts</option>
                 </datalist>
             </li>
             <li><a href="home.php">Home</a></li>
